@@ -19,7 +19,14 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(title: Text('Welcome Here'), centerTitle: true),
-        drawer: Drawer(child: ListTile(title: Text('Dashboard'))),
+        drawer: Drawer(
+          child: Column(
+            children: [
+              DrawerHeader(child: Text("Dashboard")),
+              ListTile(title: Text('Menu')),
+            ],
+          ),
+        ),
         floatingActionButton: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
