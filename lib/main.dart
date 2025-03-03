@@ -4,60 +4,81 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
-          brightness: Brightness.dark,
-        ),
-      ),
-      home: Scaffold(
-        appBar: AppBar(title: Text('Welcome Here'), centerTitle: true),
-        drawer: Drawer(
-          child: Column(
-            children: [
-              DrawerHeader(child: Text("Dashboard")),
-              ListTile(title: Text('Menu')),
-            ],
-          ),
-        ),
-        floatingActionButton: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
-            SizedBox(height: 10),
-
-            FloatingActionButton(
-              onPressed: () {},
-              child: Icon(Icons.minimize_rounded),
-            ),
-          ],
-        ),
-
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-
-            NavigationDestination(
-              icon: Icon(Icons.notification_add),
-              label: 'Profile',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.messenger_rounded),
-              label: 'Chats',
-            ),
-          ],
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreenAccent),
       ),
     );
   }
 }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         colorScheme: ColorScheme.fromSeed(
+//           seedColor: Colors.teal,
+//           brightness: Brightness.dark,
+//         ),
+//       ),
+//       home: MyHomePage(),
+//     );
+//   }
+// }
+
+// class MyHomePage extends StatefulWidget {
+//   const MyHomePage({super.key});
+
+//   @override
+//   State<MyHomePage> createState() => _MyHomePageState();
+// }
+
+// class _MyHomePageState extends State<MyHomePage> {
+//   int currentIndex = 0;
+//   @override
+//   Widget build(BuildContext context) {
+//     return SafeArea(
+//       child: Scaffold(
+//         appBar: AppBar(title: Text('Welcome Here'), centerTitle: true),
+//         body:
+//             currentIndex == 0
+//                 ? Center(child: Text("Home Page"))
+//                 : Center(child: Text("Profile Page")),
+//         bottomNavigationBar: NavigationBar(
+//           destinations: [
+//             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+
+//             NavigationDestination(
+//               icon: Icon(Icons.notification_add),
+//               label: 'Profile',
+//             ),
+//           ],
+//           onDestinationSelected: (int value) {
+//             setState(() {
+//               currentIndex = value;
+//             });
+//           },
+//           selectedIndex: currentIndex,
+//         ),
+//       ),
+//     );
+//   }
+// }
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
 
